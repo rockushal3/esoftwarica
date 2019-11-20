@@ -2,6 +2,8 @@ package com.example.esoftwarica.ui.notifications;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,14 +81,49 @@ public class studentform extends Fragment implements View.OnClickListener,RadioG
                          uage = age.getText().toString();
                          uname = name.getText().toString();
                          uaddress = address.getText().toString();
-                        details.add(new Student(uname,ugender,uage,uaddress));
-
+                         if(validate()) {
+                             details.add(new Student(uname, uage, ugender, uaddress));
+                             Toast.makeText(getContext(), "Student has been added", Toast.LENGTH_LONG).show();
+                             age.setText(null);
+                             name.setText(null);
+                             address.setText(null);
+                         }
 
                     }
                 });
             }
         });
         return root;
+    }
+
+    private boolean validate() {
+        if (TextUtils.isEmpty(uname)) {
+            name.setError("Enter Name");
+            return false;
+
+        }
+        if (TextUtils.isEmpty(uaddress)) {
+            address.setError("Enter Address");
+            return false;
+
+        }
+
+        if (TextUtils.isEmpty(uage)) {
+            age.setError("Enter Age");
+            return false;
+
+        }
+
+
+        if(TextUtils.isEmpty(ugender)) {
+            Toast.makeText(getContext(), "Select Gender", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }
+
+        return true;
+
+
     }
 
     @Override

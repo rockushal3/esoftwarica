@@ -1,5 +1,6 @@
 package com.example.esoftwarica.ui.home;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,9 @@ public class StudentAdaptor extends RecyclerView.Adapter<StudentAdaptor.MyHolder
         holder.gender.setText(students.getGender());
         holder.age.setText(students.getAge());
         holder.address.setText(students.getAddress());
-        if(students.getGender() == "Male"){
+        String m = students.getGender();
+
+        if(m == "Male"){
             holder.image.setImageResource(R.drawable.male);
         }
         else {
