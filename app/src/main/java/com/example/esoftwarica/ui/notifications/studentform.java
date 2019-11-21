@@ -1,9 +1,7 @@
 package com.example.esoftwarica.ui.notifications;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -21,9 +18,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.esoftwarica.R;
-import com.example.esoftwarica.ui.home.HomeFragment;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +46,7 @@ public class studentform extends Fragment implements View.OnClickListener,RadioG
         female = root.findViewById(R.id.female);
         name = root.findViewById(R.id.name);
         age =root.findViewById(R.id.age);
-        address=root.findViewById(R.id.address);
+        address=root.findViewById(R.id.textView4);
         submit.setOnClickListener(this);
         gender.setOnCheckedChangeListener(this);
 

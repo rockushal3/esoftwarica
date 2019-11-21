@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
             public void onChanged(@Nullable String s) {
 
 
-                StudentAdaptor adapter = new StudentAdaptor(studentform.details);
+                StudentAdaptor adapter = new StudentAdaptor(getContext(),studentform.details);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
                 studentsview.setLayoutManager(layoutManager);
                 studentsview.setAdapter(adapter);

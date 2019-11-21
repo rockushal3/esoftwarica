@@ -1,16 +1,16 @@
 package com.example.esoftwarica.ui.home;
 
-import android.util.Log;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.esoftwarica.R;
 import com.example.esoftwarica.ui.notifications.Student;
-import com.example.esoftwarica.ui.notifications.studentform;
 
 import java.util.List;
 
@@ -20,9 +20,12 @@ import androidx.recyclerview.widget.RecyclerView;
 public class StudentAdaptor extends RecyclerView.Adapter<StudentAdaptor.MyHolder>{
 
     List<Student> student;
+    Context context;
 
 
-    public StudentAdaptor(List<Student> student) {
+    public StudentAdaptor(Context context,List<Student> student) {
+
+        this.context = context;
         this.student = student;
     }
 
@@ -42,6 +45,13 @@ public class StudentAdaptor extends RecyclerView.Adapter<StudentAdaptor.MyHolder
         holder.age.setText(students.getAge());
         holder.address.setText(students.getAddress());
         String m = students.getGender();
+
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Hi, I'm " + students.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         if(m == "Male"){
             holder.image.setImageResource(R.drawable.male);
@@ -71,10 +81,10 @@ public class StudentAdaptor extends RecyclerView.Adapter<StudentAdaptor.MyHolder
             super(itemView);
             name= itemView.findViewById(R.id.textView2);
             age = itemView.findViewById(R.id.textView3);
-            gender = itemView.findViewById(R.id.textView4);
+            gender = itemView.findViewById(R.id.address);
             image = itemView.findViewById(R.id.imageView2);
             delete = itemView.findViewById(R.id.delete);
-            address = itemView.findViewById(R.id.address);
+            address = itemView.findViewById(R.id.textView4);
 
 
         }
